@@ -365,58 +365,57 @@ public class MovieSystem {
                         Movie movie =getMovieByShopAndName(business, movieName);
                         if (movie != null){
                             while (true) {
-                                System.out.println("请你输入购票数量： ");
+                                System.out.println("Number of Tickets： ");
                                 String number = SYS_SC.nextLine();
                                 int buyNumber = Integer.valueOf(number);
                                 if (movie.getNumber() >= buyNumber){
                                         double money = BigDecimal.valueOf(movie.getPrice())
                                                 .multiply(BigDecimal.valueOf(buyNumber)).doubleValue();
                                         if (loginUser.getMoney() >= money){
-                                            System.out.println("成功购买" + movie.getName()+ buyNumber +
-                                                    "张票，总金额" + money);
+                                            System.out.println("Purchase Successfully" + movie.getName()+ buyNumber +
+                                                    "Tickets，Total" + money);
                                             loginUser.setMoney(loginUser.getMoney() - money);
                                             business.setMoney(business.getMoney() + money);
                                             movie.setNumber(movie.getNumber() - buyNumber);
                                             return;
                                         }else {
-                                            System.out.println("是否继续");
-                                            System.out.println("是否继续买票？y/n");
+                                            System.out.println("Still want to purchase more tickets？y/n");
                                             String command = SYS_SC.nextLine();
                                             switch (command){
                                                 case "y":
                                                     break;
                                                 default:
-                                                    System.out.println("好的");
+                                                    System.out.println("Ok");
                                                     return;
                                             }
                                         }
                                 }else {
-                                    System.out.println("当前电影票只剩： " + movie.getNumber());
-                                    System.out.println("是否继续买票？y/n");
+                                    System.out.println("Tickets In Stock： " + movie.getNumber());
+                                    System.out.println("Still want the tickets？y/n");
                                     String command = SYS_SC.nextLine();
                                     switch (command){
                                         case "y":
                                             break;
                                         default:
-                                            System.out.println("好的");
+                                            System.out.println("Ok");
                                             return;
                                     }
                                 }
                             }
                         }else{
-                            System.out.println("电影有问题");
+                            System.out.println("Something Wrong with the command");
                         }
                     }
 
                 }else {
-                    System.out.println("电影院已关门了");
-                    System.out.println("是否继续买票？y/n");
+                    System.out.println("Theater have been close");
+                    System.out.println("Still want to purchase tickets？y/n");
                     String command = SYS_SC.nextLine();
                     switch (command){
                         case "y":
                             break;
                         default:
-                            System.out.println("好的");
+                            System.out.println("ok");
                             return;
                     }
                 }
@@ -447,10 +446,10 @@ public class MovieSystem {
 
 
     private static void showAllMovie() {
-        System.out.println("=============展示影片==========");
+        System.out.println("=============Show Moive==========");
         ALL_MOVIES.forEach((business, movies) ->  {
-            System.out.println(business.getShopName() + "\t\t电话" + business.getPhone() + "\t\t地址" + business.getAddress());
-                System.out.println("片名\t\t\t主演\t\t\t时长\t\t\t评分\t\t\t票价\t\t\t余票数量\t\t\t放映时间");
+            System.out.println(business.getShopName() + "\t\tPhone" + business.getPhone() + "\t\tAddress" + business.getAddress());
+                System.out.println("Movie Name\t\t\tMain Character\t\t\tTime\t\t\tScore\t\t\tPrice\t\t\tTickets InStock\t\t\tShowtime date");
             for (Movie movie : movies) {
                 System.out.println(movie.getName() + "\t\t\t" + movie.getActor() + "\t\t\t" + movie.getTime()
                         + "\t\t\t" + movie.getScore() + "\t\t\t" + movie.getPrice() + "\t\t\t" + movie.getNumber()
