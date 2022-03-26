@@ -30,7 +30,7 @@ public class MovieSystem {
         c.setLoginName("zyf888");
         c.setPassword("123456");
         c.setUserName("liu");
-        c.setSex('男');
+        c.setSex('Male');
         c.setMoney(2000);
         c.setPhone("111111");
         ALL_USERS.add(c);
@@ -39,7 +39,7 @@ public class MovieSystem {
         c1.setLoginName("gyf888");
         c1.setPassword("123456");
         c1.setUserName("qing");
-        c1.setSex('女');
+        c1.setSex('Female');
         c1.setMoney(20000);
         c1.setPhone("111111");
         ALL_USERS.add(c1);
@@ -48,11 +48,11 @@ public class MovieSystem {
         b.setLoginName("bzg888");
         b.setPassword("123456");
         b.setUserName("liu");
-        b.setSex('男');
+        b.setSex('Male');
         b.setMoney(2000);
         b.setPhone("111111");
-        b.setAddress("火星6号2B二层");
-        b.setShopName("天天影院");
+        b.setAddress("Mars 2 second floor");
+        b.setShopName("Day Day Theater");
         ALL_USERS.add(b);
 
         List<Movie> movies = new ArrayList<>();
@@ -62,11 +62,11 @@ public class MovieSystem {
         b1.setLoginName("bzp888");
         b1.setPassword("123456");
         b1.setUserName("chen");
-        b1.setSex('女');
+        b1.setSex('Female');
         b1.setMoney(2000);
         b1.setPhone("111111");
-        b1.setAddress("火星8号2B二层");
-        b1.setShopName("巧克力影院");
+        b1.setAddress("Mars 8 second Floor");
+        b1.setShopName("Chocolate Theater");
         ALL_USERS.add(b1);
 
         List<Movie> movies1 = new ArrayList<>();
@@ -120,7 +120,7 @@ public class MovieSystem {
                 System.out.println("Wrong Password");
             }
         }else {
-            System.out.println("Wrong Username，Please try again");
+            System.out.println("Wrong Username, Please try again");
         }
 
     }
@@ -135,7 +135,7 @@ public class MovieSystem {
         System.out.println("4, Change Movie");
         System.out.println("5, Exit");
         while (true) {
-            System.out.println("Please enter order number：");
+            System.out.println("Please enter order number:");
             String command = SYS_SC.nextLine();
             switch (command){
                 case "1":
@@ -168,24 +168,24 @@ public class MovieSystem {
             return;
         }
         while (true) {
-            System.out.println("Please enter the movie name you would like to change ：" );
+            System.out.println("Please enter the movie name you would like to change :" );
             String movieName = SYS_SC.nextLine();
 
             Movie movie = getMovieByName(movieName);
             if (movie != null){
-                System.out.println("New Movie Name： ");
+                System.out.println("New Movie Name: ");
                 String name = SYS_SC.nextLine();
-                System.out.println("New Main Character： ");
+                System.out.println("New Main Character: ");
                 String actor = SYS_SC.nextLine();
-                System.out.println("New Time Line： ");
+                System.out.println("New Time Line: ");
                 String time = SYS_SC.nextLine();
-                System.out.println("New Price： ");
+                System.out.println("New Price: ");
                 String price = SYS_SC.nextLine();
-                System.out.println("New InStock Tickets： ");
+                System.out.println("New InStock Tickets: ");
                 String totalNumber = SYS_SC.nextLine();
                 while (true) {
                     try {
-                        System.out.println("New showtime date： ");
+                        System.out.println("New showtime date: ");
                         String stime = SYS_SC.nextLine();
                         movie.setName(name);
                         movie.setActor(actor);
@@ -203,7 +203,7 @@ public class MovieSystem {
                 }
             }else {
                 System.out.println("This Theater doesn't has this movie" + movie.getName());
-                System.out.println("Still want to Change？");
+                System.out.println("Still want to Change?");
                 String command = SYS_SC.nextLine();
                 switch (command){
                     case "y":
@@ -225,7 +225,7 @@ public class MovieSystem {
             return;
         }
         while (true) {
-            System.out.println("Please Enter the remove movie name ：" );
+            System.out.println("Please Enter the remove movie name :" );
             String movieName = SYS_SC.nextLine();
 
             Movie movie = getMovieByName(movieName);
@@ -236,7 +236,7 @@ public class MovieSystem {
                 return;
             }else {
                 System.out.println("This Theater doesn't has this movie");
-                System.out.println("Still want to remove？y/n");
+                System.out.println("Still want to remove? y/n");
                 String command = SYS_SC.nextLine();
                 switch (command){
                     case "y":
@@ -267,24 +267,24 @@ public class MovieSystem {
         Business business = (Business) loginUser;
         List<Movie> movies = ALL_MOVIES.get(business);
 
-        System.out.println("New Movie name： ");
+        System.out.println("New Movie name: ");
         String name = SYS_SC.nextLine();
-        System.out.println("Main Character： ");
+        System.out.println("Main Character: ");
         String actor = SYS_SC.nextLine();
-        System.out.println("Time： ");
+        System.out.println("Time: ");
         String time = SYS_SC.nextLine();
-        System.out.println("Ticket Price： ");
+        System.out.println("Ticket Price: ");
         String price = SYS_SC.nextLine();
-        System.out.println("Ticket InStock： ");
+        System.out.println("Ticket InStock: ");
         String totalNumber = SYS_SC.nextLine();
         while (true) {
             try {
-                System.out.println("ShowTime date： ");
+                System.out.println("ShowTime date: ");
             String stime = SYS_SC.nextLine();
                 Movie movie = new Movie(name, actor, Double.valueOf(time), Double.valueOf(price), Integer.valueOf(totalNumber),
                         sdf.parse(stime));
                 movies.add(movie);
-                System.out.println("Upload Successfully： 《" + movie.getName() + "》");
+                System.out.println("Upload Successfully: 《" + movie.getName() + "》");
                 return;
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -323,7 +323,7 @@ public class MovieSystem {
         System.out.println("3, Score");
         System.out.println("4, Buy Ticket");
         System.out.println("5, Exit");
-            System.out.println("Please enter command：");
+            System.out.println("Please enter command:");
         String command = SYS_SC.nextLine();
         switch (command){
             case "1":
@@ -360,12 +360,12 @@ public class MovieSystem {
 
                 if (movies.size() > 0){
                     while (true) {
-                        System.out.println("Movie name： ");
+                        System.out.println("Movie name: ");
                         String movieName = SYS_SC.nextLine();
                         Movie movie =getMovieByShopAndName(business, movieName);
                         if (movie != null){
                             while (true) {
-                                System.out.println("Number of Tickets： ");
+                                System.out.println("Number of Tickets: ");
                                 String number = SYS_SC.nextLine();
                                 int buyNumber = Integer.valueOf(number);
                                 if (movie.getNumber() >= buyNumber){
@@ -373,13 +373,13 @@ public class MovieSystem {
                                                 .multiply(BigDecimal.valueOf(buyNumber)).doubleValue();
                                         if (loginUser.getMoney() >= money){
                                             System.out.println("Purchase Successfully" + movie.getName()+ buyNumber +
-                                                    "Tickets，Total" + money);
+                                                    "Tickets,Total" + money);
                                             loginUser.setMoney(loginUser.getMoney() - money);
                                             business.setMoney(business.getMoney() + money);
                                             movie.setNumber(movie.getNumber() - buyNumber);
                                             return;
                                         }else {
-                                            System.out.println("Still want to purchase more tickets？y/n");
+                                            System.out.println("Still want to purchase more tickets?y/n");
                                             String command = SYS_SC.nextLine();
                                             switch (command){
                                                 case "y":
@@ -390,8 +390,8 @@ public class MovieSystem {
                                             }
                                         }
                                 }else {
-                                    System.out.println("Tickets In Stock： " + movie.getNumber());
-                                    System.out.println("Still want the tickets？y/n");
+                                    System.out.println("Tickets In Stock: " + movie.getNumber());
+                                    System.out.println("Still want the tickets? y/n");
                                     String command = SYS_SC.nextLine();
                                     switch (command){
                                         case "y":
@@ -409,7 +409,7 @@ public class MovieSystem {
 
                 }else {
                     System.out.println("Theater have been close");
-                    System.out.println("Still want to purchase tickets？y/n");
+                    System.out.println("Still want to purchase tickets?y/n");
                     String command = SYS_SC.nextLine();
                     switch (command){
                         case "y":
