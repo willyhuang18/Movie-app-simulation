@@ -160,7 +160,7 @@ public class MovieSystem {
     }
 
     private static void updateMovie() {
-        System.out.println("Welcome to the Century Theater");
+        System.out.println("Welcome to the Theater");
         Business business = (Business) loginUser;
         List<Movie> movies = ALL_MOVIES.get(business);
         if (movies.size() == 0){
@@ -307,7 +307,7 @@ public class MovieSystem {
                         + "\t\t\t" + sdf.format(movie.getStartTime()));
             }
         }else {
-            System.out.println("当前无片");
+            System.out.println("No this Movie");
         }
     }
 
