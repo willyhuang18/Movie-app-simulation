@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <br/>
-# Movie-app-simulation
+# Theater-simulation
 This Java application has no UI design. This application just a simple theater system simulation, image to be able to play around with your own theater. 
 
 ## User
